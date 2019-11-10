@@ -1,0 +1,128 @@
+.menu-wrap {
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+    position: fixed;
+}
+
+.menu-wrap .toggle{
+    opacity: 0;
+    top: 5px;
+    left:5px;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+    position: absolute;
+}
+
+.menu-wrap .hamburger{
+    top: 5px;
+    left:5px;
+    border-radius: 3px;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(38, 37, 38, .7);
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-wrap .hamburger > div{
+    position: relative;
+    flex: none;
+    width: 80%;
+    height: 3px; display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F2E9E9;
+    transition: all .4s ease;
+}
+
+.menu-wrap .hamburger > div::before,
+.menu-wrap .hamburger > div::after{
+    content: '';
+    position: absolute;
+    flex: none;
+    width: 100%;
+    height: 3px; display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F2E9E9;
+    top: 10px;
+}
+.menu-wrap .hamburger > div::after{
+    top: -10px;
+}
+
+.menu-wrap .menu {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.menu-wrap .menu > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgb(38, 37, 38, .9);
+    transition: all .4s ease;
+    width: 300vh;
+    height: 300vh;
+    flex: none;
+    transform: scale(0);
+}
+
+.menu-wrap .menu > div > div{
+    text-align: center;
+    max-width: 90vh;
+    max-height: 100vh;
+    transition: opacity .4s ease;
+    opacity: 0;
+}
+.menu-wrap .menu > div > div> ul > li{
+    list-style: none;
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: #F2E9E9;
+}
+
+.menu-wrap .menu > div > div> ul > li > a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: inherit;
+    transition: color .4s ease;
+}
+
+.menu-wrap .toggle:checked + .hamburger > div {
+    transform: rotate(135deg);
+}
+
+.menu-wrap .toggle:checked + .hamburger > div:before,
+.menu-wrap .toggle:checked + .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+.menu-wrap .toggle:checked:hover + .hamburger > div {
+    transform: rotate(225deg);
+}
+
+.menu-wrap .toggle:checked ~ .menu {
+    visibility: visible;
+}
+.menu-wrap .toggle:checked ~ .menu > div {
+    transform: scale(1);
+}
+.menu-wrap .toggle:checked ~ .menu > div > div {
+    opacity: 1;
+}
+
